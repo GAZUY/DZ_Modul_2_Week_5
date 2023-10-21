@@ -11,6 +11,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var _a, _b;
 /*
 Задание 1
 Реализовать класс, описывающий простой маркер. В классе
@@ -60,6 +61,73 @@ var FullInk = /** @class */ (function (_super) {
     };
     return FullInk;
 }(Katridge));
+var lineText = document.querySelector('#task1 input');
+if (lineText)
+    lineText.value;
+console.log(lineText.value);
 var asd = new FullInk('red', 10);
 asd.full(10);
 asd.display('метод для печати (метод принимает строку и выводит текст соответствующим цветом;');
+// Создаём и описываем новый html-элемент
+var myNewDiv = document.createElement('div');
+myNewDiv.className = 'aaa bbb';
+myNewDiv.setAttribute('style', 'color:green');
+myNewDiv.innerText = 'div созданный в js';
+myNewDiv.addEventListener('click', function () { alert('hello'); });
+// Добавляем в уже существующий элемент
+var divForPrintMachine = document.querySelector('.forPrintMachine');
+divForPrintMachine === null || divForPrintMachine === void 0 ? void 0 : divForPrintMachine.appendChild(myNewDiv);
+// Получаем элементы
+var input1 = document.querySelector('#task1 input');
+if (input1)
+    input1.value;
+console.log(input1);
+var text1 = document.querySelector('#task1 b');
+var button1 = document.querySelectorAll('#task1 button');
+var output1 = document.querySelector('#task1 p');
+document.write('<h1>asddasdas</h1>');
+document.write('<p>asddasdas</p>');
+document.write('<q>asddasdas</q>');
+var h1 = document.querySelector('h1');
+if (h1)
+    h1.innerText = 'ddad';
+if (text1)
+    text1.innerText = 'Кто там?';
+// По нажатию на кнопку выводим результат
+var onClick = function () {
+    // @ts-ignore
+    output1.innerText = '';
+    // @ts-ignore
+    if (input1.value == 'Админ') {
+        // @ts-ignore
+        text1.innerText = 'Пароль?';
+        // @ts-ignore
+        input1.value = '';
+        button1[0].classList.add('hidden');
+        button1[1].classList.remove('hidden');
+    }
+    else {
+        // @ts-ignore
+        output1.innerText = 'Я вас не знаю';
+    }
+};
+(_a = button1[0]) === null || _a === void 0 ? void 0 : _a.addEventListener('click', onClick);
+(_b = button1[1]) === null || _b === void 0 ? void 0 : _b.addEventListener('click', function () {
+    // @ts-ignore
+    output1.innerText = '';
+    // @ts-ignore
+    if (input1.value == 'Я Главный') {
+        // @ts-ignore
+        output1.innerText = 'Здравствуйте!';
+    }
+    else {
+        // @ts-ignore
+        text1.innerText = 'Кто там?';
+        // @ts-ignore
+        output1.innerText = 'Я вас не знаю';
+        // @ts-ignore
+        input1.value = '';
+        button1[0].classList.remove('hidden');
+        button1[1].classList.add('hidden');
+    }
+});
