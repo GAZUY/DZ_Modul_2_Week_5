@@ -61,13 +61,22 @@ var FullInk = /** @class */ (function (_super) {
     };
     return FullInk;
 }(Katridge));
-var lineText = document.querySelector('#task1 input');
-if (lineText)
-    lineText.value;
-console.log(lineText.value);
 var asd = new FullInk('red', 10);
 asd.full(10);
 asd.display('метод для печати (метод принимает строку и выводит текст соответствующим цветом;');
+// const printText = document.getElementById(".qwe button") as HTMLButtonElement
+// printText.addEventListener("click", () => {
+//   const myInput = document.getElementById("#DZ1 input") as HTMLInputElement;
+//   const value = myInput.value;
+//   console.log(value);
+// });
+// const printText = document.querySelector('.qwe button') as HTMLButtonElement
+// const output2 = document.querySelector('#print1 p') as HTMLParagraphElement
+// const onClickc = function (){
+//     const lineText = (document.querySelector('#DZ1 input') as HTMLInputElement).value
+//     console.log (lineText)
+// }
+// printText?.addEventListener('click', onClickc)
 // Создаём и описываем новый html-элемент
 var myNewDiv = document.createElement('div');
 myNewDiv.className = 'aaa bbb';
@@ -81,7 +90,6 @@ divForPrintMachine === null || divForPrintMachine === void 0 ? void 0 : divForPr
 var input1 = document.querySelector('#task1 input');
 if (input1)
     input1.value;
-console.log(input1);
 var text1 = document.querySelector('#task1 b');
 var button1 = document.querySelectorAll('#task1 button');
 var output1 = document.querySelector('#task1 p');
@@ -110,6 +118,7 @@ var onClick = function () {
         // @ts-ignore
         output1.innerText = 'Я вас не знаю';
     }
+    console.log(input1.value);
 };
 (_a = button1[0]) === null || _a === void 0 ? void 0 : _a.addEventListener('click', onClick);
 (_b = button1[1]) === null || _b === void 0 ? void 0 : _b.addEventListener('click', function () {
@@ -131,3 +140,85 @@ var onClick = function () {
         button1[1].classList.add('hidden');
     }
 });
+/*
+Реализуйте класс ExtendedDate, унаследовав его от стандарт-
+ного класса Date и добавив следующие возможности:
+■ метод для вывода даты (числа и месяца) текстом;
+■ метод для проверки – это прошедшая дата или будущая
+(если прошедшая, то метод возвращает false; если буду-
+щая или текущая, то true);
+■ метод для проверки – високосный год или нет;
+■ метод, возвращающий следующую дату.
+Создайте объект класса ExtendedDate и выведите на экран
+результаты работы новых методов.
+*/
+var num = new Date().getDate().toLocaleString();
+console.log(num);
+var mon = new Date().getMonth();
+console.log(mon);
+var ExtendedDate = /** @class */ (function (_super) {
+    __extends(ExtendedDate, _super);
+    function ExtendedDate() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ExtendedDate.prototype.getRussianDate = function () {
+        var num = new Date().getDate().toLocaleString();
+        var mon = new Date().getMonth();
+        console.log(num);
+        console.log(mon);
+        var month = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+        var digit = ['', 'первое', 'второе', 'третье', 'четвертое', 'пятое', 'шестое', 'седьмое', 'восьмое', 'девятое'];
+        var twoDigitNumber = ['десятое', 'одиннадцатое', 'двенадцатое', 'тринадцатое', 'четырнадцатое', 'пятнадцатое', 'шестнадцатое', 'семнадцатое', 'восемнадцатое', 'девятнадцатое'];
+        var dozens = ['', '', 'двадцать', 'тридцать',];
+        if (num.length == 2) {
+            if ((+num[0]) == 1) {
+                return twoDigitNumber[(+num[1])] + ' ' + month[(mon)];
+            }
+            else {
+                return dozens[(+num[0])] + ' ' + digit[(+num[1])] + ' ' + month[(mon)];
+            }
+        }
+        if (num.length == 1) {
+            return digit[(+num[0])] + ' ' + month[(mon)];
+        }
+    };
+    ExtendedDate.prototype.now = function () {
+        this.now();
+    };
+    ExtendedDate.prototype.parse = function (val) {
+        this.parse(val);
+    };
+    return ExtendedDate;
+}(Date));
+console.log((new ExtendedDate('2020-12-26')).getRussianDate());
+//   function inWordsTheNumber (num : number|string) {
+//     const digit = ['','один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять']
+//     const twoDigitNumber = ['десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать']
+//     const dozens = ['','','двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто']
+//     num = String (num)
+//     if ((+ num[0]) == 1){
+//       return twoDigitNumber[(+ num[1])]
+//     }else{
+//       return dozens[(+ num[0])] +' '+ digit[(+ num[1])]
+//     }
+//   }
+//     console.log(inWordsTheNumber(35))
+/*
+Задание 3
+Реализовать класс Employee, описывающий работника, и со-
+здать массив работников банка.
+Реализовать класс EmpTable для генерации html кода таблицы
+со списком работников банка. Массив работников необходимо
+передавать через конструктор, а получать html код с помощью
+метода getHtml().
+Создать объект класса EmpTable и вывести на экран результат
+работы метода getHtml().
+Задание 4
+Реализовать класс StyledEmpTable, который наследуется от
+класса EmpTable. Добавить метод getStyles(), который возвращает
+строку со стилями для таблицы в тегах style. Переопределить
+метод getHtml(), который добавляет стили к тому, что возвращает
+метод getHtml() из родительского класса.
+Создать объект класса StyledEmpTable и вывести на экран
+результат работы метода getHtml().
+*/
