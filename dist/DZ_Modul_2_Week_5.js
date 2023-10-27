@@ -38,13 +38,13 @@ var Katridge = /** @class */ (function () {
         for (var i = 0; i < str.length; i++) {
             if (quantity != 0 && str[i] != ' ') {
                 quantity -= 0.5;
-                document.write(str[i]);
+                output2.innerText = str[i];
             }
             else if (quantity != 0 && str[i] == ' ') {
-                document.write(str[i]);
+                output2.innerText = str[i];
             }
             else {
-                document.write('Кончились чернила');
+                output2.innerText = 'Кончились чернила';
                 break;
             }
         }
@@ -64,19 +64,19 @@ var FullInk = /** @class */ (function (_super) {
 var asd = new FullInk('red', 10);
 asd.full(10);
 asd.display('метод для печати (метод принимает строку и выводит текст соответствующим цветом;');
-// const printText = document.getElementById(".qwe button") as HTMLButtonElement
+// const printText = document.getElementById(".qwe") as HTMLButtonElement
 // printText.addEventListener("click", () => {
 //   const myInput = document.getElementById("#DZ1 input") as HTMLInputElement;
 //   const value = myInput.value;
 //   console.log(value);
 // });
-// const printText = document.querySelector('.qwe button') as HTMLButtonElement
-// const output2 = document.querySelector('#print1 p') as HTMLParagraphElement
-// const onClickc = function (){
-//     const lineText = (document.querySelector('#DZ1 input') as HTMLInputElement).value
-//     console.log (lineText)
-// }
-// printText?.addEventListener('click', onClickc)
+var printText = document.querySelector('.qwe');
+var output2 = document.querySelector('#print1 p');
+var onClickc = function () {
+    var lineText = document.querySelector('#DZ1 input').value;
+    asd.display(lineText);
+};
+printText === null || printText === void 0 ? void 0 : printText.addEventListener('click', onClickc);
 // Создаём и описываем новый html-элемент
 var myNewDiv = document.createElement('div');
 myNewDiv.className = 'aaa bbb';
